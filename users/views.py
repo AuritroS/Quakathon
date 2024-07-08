@@ -1,6 +1,6 @@
-from django.shortcuts import render
-from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from app import views
 
-def register(request):
-    form = UserCreationForm()
-    return render(request, 'users/register.html', {'form': form})
+def profile(request):
+    return render(request, 'profile.html')
