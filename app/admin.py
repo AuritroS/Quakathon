@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import Campus, Location
+from .models import Location,Profile, Group
 
 # Register your models here.
-admin.site.register(Campus)
 admin.site.register(Location)
+admin.site.register(Profile)
+admin.site.register(Group)
 

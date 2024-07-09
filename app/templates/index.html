@@ -1,57 +1,62 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta
-            name="viewport"
-            content="initial-scale=1,maximum-scale=1,user-scalable=no"
-        />
-        <script src="https://cdn.maptiler.com/maplibre-gl-js/v1.13.0-rc.4/mapbox-gl.js"></script>
-        <link
-            href="https://cdn.maptiler.com/maplibre-gl-js/v1.13.0-rc.4/mapbox-gl.css"
-            rel="stylesheet"
-        />
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-            }
-            #map {
-                position: absolute;
-                top: 200px;
-                bottom: 0;
-                width: 100%;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>Study Groups</h1>
-            <form method="POST" class="post-form">
-                {%csrf_token%} {{form.as_p}}
-                <button type="submit">Show Locations</button>
-            </form>
-            {{locations}}
-        </div>
-        <div id="map"></div>
-        <script>
-            mapboxgl.setRTLTextPlugin(
-                "https://cdn.maptiler.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.1.2/mapbox-gl-rtl-text.js"
-            );
-            var map = new mapboxgl.Map({
-                container: "map",
-                style: "https://api.maptiler.com/maps/streets-v2/style.json?key=GycBf2t5EfV6sj8zFMaz",
-                center: [144.946457, -37.840935],
-                zoom: 11,
-            });
-            const marker1 = new mapboxgl.Marker()
-                .setLngLat([144.946457, -37.840935])
-                .addTo(map);
-            const marker2 = new mapboxgl.Marker()
-                .setLngLat([144.947457, -37.830935])
-                .addTo(map);
-            const marker3 = new mapboxgl.Marker()
-                .setLngLat([144.945457, -37.820935])
-                .addTo(map);
-        </script>
-    </body>
+  <head>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <script src="https://cdn.maptiler.com/maplibre-gl-js/v1.13.0-rc.4/mapbox-gl.js"></script>
+    <link
+      href="https://cdn.maptiler.com/maplibre-gl-js/v1.13.0-rc.4/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 200px;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Study Groups</h1>
+      <a href="">Home</a>
+      <a href="profile/">Profile</a>
+      <a href="create-group/">Study</a>
+      <a href="points/">Rewards</a>
+    </div>
+    <div id="map"></div>
+    <script>
+      mapboxgl.setRTLTextPlugin(
+        "https://cdn.maptiler.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.1.2/mapbox-gl-rtl-text.js"
+      );
+      var map = new mapboxgl.Map({
+        container: "map",
+        style:
+          "https://api.maptiler.com/maps/streets-v2/style.json?key=GycBf2t5EfV6sj8zFMaz",
+        center: [144.946457, -37.840935],
+        zoom: 11,
+      });
+      const marker1 = new mapboxgl.Marker()
+        .setLngLat([144.946457, -37.840935])
+        .addTo(map);
+
+      const marker2 = new mapboxgl.Marker()
+        .setLngLat([144.947457, -37.830935])
+        .addTo(map);
+      const marker3 = new mapboxgl.Marker()
+        .setLngLat([144.945457, -37.820935])
+        .addTo(map);
+      const popup = new mapboxgl.Popup({ closeOnClick: false })
+        .setLngLat([144.945457, -37.820935])
+        .setHTML("<a href='/join-group/'>Join Group</a>")
+        .addTo(map);
+    </script>
+  </body>
 </html>

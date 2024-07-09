@@ -1,20 +1,27 @@
 from django.shortcuts import render
 from .forms import LocationForm
-from .models import Location, Campus
+from .models import Location
 
 # Create your views here.
 
 
 def HomeView(request):
-    context = {}
+    return render(request, "index.html", )
 
-    form = LocationForm(request.POST or None, request.FILES or None)
-    locations = None
+def MapView(request):
+    return render(request, "map.html")
 
-    if request.method=="POST":
-        campus = request.POST['campus']
-        locations = Location.objects.filter(campus = campus)
+def ProfileView(request):
+    return render(request, "profile.html")
 
-    context['form'] = form
-    context['locations']= locations
-    return render(request, "index.html", context)
+def CreateGroupView(request):
+    return render(request, "creategroup.html")
+
+def JoinGroupView(request):
+    return render(request, "joingroup.html")
+
+def FriendsView(request):
+    return render(request, "friends.html")
+
+def PointsView(request):
+    return render(request, "points.html")

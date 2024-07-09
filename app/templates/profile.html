@@ -1,0 +1,8 @@
+<h1>Profile</h1>
+{% if user.is_authenticated %}
+<p>Welcome, {{ user.username }}. You are logged in.</p>
+<a href="/accounts/logout">Logout</a>
+{% else %}
+<p>You are not logged in.</p>
+<a href="/accounts/login">Login</a>
+{% endif %}
