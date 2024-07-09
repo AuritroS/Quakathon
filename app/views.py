@@ -4,9 +4,6 @@ from .models import Location
 
 
 
-def HomeView(request):
-    return render(request, "index.html", )
-
 def MapView(request):
     return render(request, "map.html")
 
