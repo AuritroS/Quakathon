@@ -2,7 +2,6 @@ from django.shortcuts import render
 from .forms import LocationForm
 from .models import Location
 
-# Create your views here.
 
 
 def HomeView(request):
